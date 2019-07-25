@@ -528,7 +528,7 @@ hr {
   }
 
   .calendar__header--shift {
-    /* width: calc(100% - 3px); to match the watertank width */
+    width: calc(100% - 3px); /* to match the watertank width */
     height: 42px;
   }
 

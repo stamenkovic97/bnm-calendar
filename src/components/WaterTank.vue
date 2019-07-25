@@ -24,7 +24,7 @@
       >{{booked}}/{{actualTotal}}</div>
       <div
         class="wt-wrapper__water-tank__filled"
-        :style="{transform: `translate(0, ${percentEmpty})`}"
+        :style="isIE ? {transform: `translate(0, ${percentEmpty})`} : {transform: `translate3d(0, ${percentEmpty}, 0)`}"
       />
       <!-- using translate over translate3d to get it working in ie9 -->
     </div>
@@ -33,8 +33,14 @@
 </template>
 
 <script>
+import { isIE } from "../common";
 export default {
   name: "WaterTank",
+  data() {
+    return {
+      isIE: isIE()
+    };
+  },
   props: {
     booked: {
       default: 0,
